@@ -32,6 +32,10 @@ public class MenuListAdapter extends BaseAdapter {
 
     }
 
+    private static class ViewHolder{
+
+    }
+
     @Override
     public int getCount() {
         return menuItens.size();
@@ -39,12 +43,18 @@ public class MenuListAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+
+        if(position < menuItens.size()) {
+            return menuItens.get(position);
+        } else {
+            return null;
+        }
+
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     @Override
