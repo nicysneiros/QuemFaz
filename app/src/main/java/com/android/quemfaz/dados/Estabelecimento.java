@@ -1,5 +1,7 @@
 package com.android.quemfaz.dados;
 
+import com.parse.ParseUser;
+
 /**
  * Created by nicolle on 31/01/15.
  */
@@ -8,8 +10,9 @@ public class Estabelecimento {
     private String nome, descricao, categoria, telefone, email, paginaWeb, paginaFacebook;
     private byte[] foto;
     private double latitude, longitude;
+    private ParseUser usuario;
 
-    public Estabelecimento(String nome, String descricao, String categoria, String telefone, String email, String paginaWeb, String paginaFacebook, byte[] foto, double latitude, double longitude) {
+    public Estabelecimento(String nome, String descricao, String categoria, String telefone, String email, String paginaWeb, String paginaFacebook, byte[] foto, double latitude, double longitude, ParseUser usuario) {
 
         this.nome = nome;
         this.descricao = descricao;
@@ -21,6 +24,8 @@ public class Estabelecimento {
         this.foto = foto;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.usuario=usuario;
+
     }
 
     public String getNome() {
@@ -101,5 +106,13 @@ public class Estabelecimento {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    public ParseUser getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(ParseUser usuario) {
+        this.usuario = usuario;
     }
 }
