@@ -1,0 +1,92 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.quemfaz.fragments.LoginFragment">
+
+    <RelativeLayout
+        android:id="@+id/loginBlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
+        >
+
+        <TextView
+            android:id="@+id/nomeTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email:"
+            />
+
+        <EditText
+            android:id="@+id/nomeEditText"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/nomeTextView"/>
+
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email:"
+            android:layout_below="@id/nomeEditText"
+            />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/emailTextView"/>
+
+        <TextView
+            android:id="@+id/passwordTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/emailEditText"
+            android:text="Senha:"/>
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_below="@id/passwordTextView"
+            android:layout_width="200dp"
+            android:layout_height="40dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/buttonBlock"
+        android:layout_below="@id/loginBlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:layout_marginTop="70dp"
+        android:layout_centerHorizontal="true"
+        >
+        <Button
+            android:id="@+id/entrarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entrar"
+            />
+
+        <TextView
+            android:id="@+id/facebookText"
+            android:layout_below="@id/entrarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ou logue com"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Facebook"
+            android:layout_below="@id/facebookText"/>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
