@@ -39,4 +39,5 @@ public class QuemFaz extends Application {
         ParseUser.getCurrentUser().saveInBackground();
 
     }
+
 }

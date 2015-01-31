@@ -1,29 +1,28 @@
 package com.android.quemfaz.dados;
 
-import android.util.Log;
-
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.SignUpCallback;
 
 /**
  * Created by nicolle on 31/01/15.
  */
 public class RepositorioUsuario {
 
-    public void cadastrarUsuario(String nome, String email, String senha){
+
+    public void cadastrarUsuario(String nome, String email, String senha) throws ParseException {
         ParseUser usuario = ParseUser.getCurrentUser();
-        usuario.setUsername(nome);
+        usuario.setUsername(email);
         usuario.setEmail(email);
         usuario.setPassword(senha);
+        usuario.put("name", nome);
 
-        usuario.signUpInBackground(new SignUpCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e != null){
-                    Log.d("RepositorioUsuario", "Erro ao cadastrar usuario");
-                }
-            }
-        });
+        usuario.signUp();
     }
+
+    public void loginUsuario(String email, String senha) throws ParseException {
+        ParseUser.logIn(email, senha);
+    }
+
+
+
 }
