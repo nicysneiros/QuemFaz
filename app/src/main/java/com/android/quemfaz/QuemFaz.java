@@ -15,10 +15,10 @@ import com.parse.ParseUser;
 public class QuemFaz extends Application {
 
     public void onCreate(){
-        super.onCreate();
-
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "xC4PRvy2YXmAV2AiQQEYiDYmNQQYvcsVzHQi7fiZ", "XLsk5LfbIrdQl3ViCnf8ka4FcAeNfh1vmkMqEpAW");
+
+        ParseUser.enableAutomaticUser();
 
         //Checar se já existe um usuário logado
         if(ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
