@@ -32,11 +32,10 @@ public class MenuListAdapter extends BaseAdapter {
         this.context = context;
         this.menuItens = new ArrayList<MenuItem>();
         if(!ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
-            //Não há usuário logado
             logado = true;
 
             menuItens.add(new MenuItem("Início", R.drawable.ic_menu_home));
-            menuItens.add(new MenuItem("Histórico de Busca", android.R.drawable.ic_menu_recent_history));
+            menuItens.add(new MenuItem("Histórico de Busca", R.drawable.ic_menu_recent_history));
             menuItens.add(new MenuItem("Favoritos", R.drawable.ic_menu_star));
             menuItens.add(new MenuItem("Categorias", R.drawable.ic_menu_find_holo_light));
 
@@ -45,8 +44,8 @@ public class MenuListAdapter extends BaseAdapter {
             logado = false;
 
             menuItens.add(new MenuItem("Início", R.drawable.ic_menu_home));
-            menuItens.add(new MenuItem("Cadastrar Estabelecimento", android.R.drawable.ic_menu_add));
-            menuItens.add(new MenuItem("Histórico de Busca", android.R.drawable.ic_menu_recent_history));
+            menuItens.add(new MenuItem("Cadastrar Estabelecimento", R.drawable.ic_menu_add));
+            menuItens.add(new MenuItem("Histórico de Busca", R.drawable.ic_menu_recent_history));
             menuItens.add(new MenuItem("Favoritos", R.drawable.ic_menu_star));
             menuItens.add(new MenuItem("Categorias", R.drawable.ic_menu_find_holo_light));
 
