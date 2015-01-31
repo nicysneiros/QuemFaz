@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.quemfaz.R;
+import com.android.quemfaz.adapters.MenuListAdapter;
 
 
 public class NavigationDrawerFragment extends Fragment {
@@ -32,6 +33,7 @@ public class NavigationDrawerFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         initViews(view);
+        initAdapters();
 
     }
 
@@ -42,7 +44,8 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
     private void initAdapters(){
-
+        MenuListAdapter adapter = new MenuListAdapter(getActivity());
+        this.itensMenu.setAdapter(adapter);
     }
 
 }
