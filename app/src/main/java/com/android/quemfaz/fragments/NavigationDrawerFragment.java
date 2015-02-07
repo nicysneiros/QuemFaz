@@ -1,9 +1,10 @@
 package com.android.quemfaz.fragments;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,5 +76,7 @@ public class NavigationDrawerFragment extends Fragment {
         MenuListAdapter adapter = new MenuListAdapter(getActivity());
         this.itensMenu.setAdapter(adapter);
     }
+
+
 
 }
