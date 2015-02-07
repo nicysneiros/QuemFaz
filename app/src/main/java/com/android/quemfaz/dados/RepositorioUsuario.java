@@ -22,7 +22,7 @@ public class RepositorioUsuario {
         usuario.put("name", nome);
         usuario.put("foto",fotoPerfil);
 
-        usuario.signUp();
+        usuario.save();
     }
 
     public void loginUsuario(String email, String senha) throws ParseException {

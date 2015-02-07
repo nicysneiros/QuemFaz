@@ -27,8 +27,12 @@
             android:label="@string/title_activity_cadastrar_estabelecimento" >
         </activity>
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.LoginCadastroActivity"
             android:label="@string/title_activity_login" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.android.quemfaz.activity.MainActivity" />
+
         </activity>
     </application>
 

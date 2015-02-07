@@ -1,6 +1,7 @@
 package com.android.quemfaz.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -15,12 +16,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.quemfaz.R;
+import com.android.quemfaz.activity.LoginCadastroActivity;
 import com.android.quemfaz.adapters.MenuListAdapter;
 import com.parse.ParseAnonymousUtils;
 import com.parse.ParseUser;
 
 
-public class NavigationDrawerFragment extends Fragment {
+public class NavigationDrawerFragment extends Fragment implements View.OnClickListener {
 
     /** VIEWS **/
     private ImageView usuarioProfilePic;
@@ -31,17 +33,23 @@ public class NavigationDrawerFragment extends Fragment {
 
     private boolean logado;
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         initViews(view);
+        initListeners();
         initAdapters();
 
         if(!ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
@@ -63,6 +71,12 @@ public class NavigationDrawerFragment extends Fragment {
 
     }
 
+    private void initListeners() {
+
+        this.entreCadastre.setOnClickListener(this);
+
+    }
+
     private void initViews(View view){
 
         this.usuarioProfilePic = (ImageView) view.findViewById(R.id.usuario_profile_pic);
@@ -70,6 +84,7 @@ public class NavigationDrawerFragment extends Fragment {
         this.itensMenu = (ListView) view.findViewById(R.id.menu);
         this.entreCadastre = (Button) view.findViewById(R.id.entre_cadastre);
         this.dadosUsuario = (LinearLayout) view.findViewById(R.id.dados_usuario);
+
     }
 
     private void initAdapters(){
@@ -78,5 +93,14 @@ public class NavigationDrawerFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
 
+        switch (v.getId()){
+            case R.id.entre_cadastre:
+                Intent intent = new Intent(getActivity(), LoginCadastroActivity.class);
+                startActivity(intent);
+            break;
+        }
+    }
 }

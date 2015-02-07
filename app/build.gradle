@@ -24,4 +24,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.parse.bolts:bolts-android:1.+'
     compile 'com.facebook.android:facebook-android-sdk:3.21.1'
+    compile 'com.viewpagerindicator:library:2.4.1'
 }
