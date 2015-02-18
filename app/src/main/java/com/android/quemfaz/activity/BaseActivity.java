@@ -21,6 +21,8 @@ public class BaseActivity extends FragmentActivity {
 
     private DrawerToggle drawerToggle;
 
+    private NavigationDrawerFragment navigationDrawerFragment;
+
     @Override
     public void setContentView(int layoutResID) {
 
@@ -34,7 +36,9 @@ public class BaseActivity extends FragmentActivity {
 
         getLayoutInflater().inflate(layoutResID, contentFrame, true);
 
-        NavigationDrawerFragment navigationDrawerFragment = new NavigationDrawerFragment();
+
+
+        navigationDrawerFragment = new NavigationDrawerFragment();
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().add(R.id.drawer_layout, navigationDrawerFragment).commit();
 
@@ -43,6 +47,10 @@ public class BaseActivity extends FragmentActivity {
             getActionBar().setHomeButtonEnabled(true);
         }
 
+    }
+
+    public void checkLogin(){
+        navigationDrawerFragment.checkLogin();
     }
 
     @Override

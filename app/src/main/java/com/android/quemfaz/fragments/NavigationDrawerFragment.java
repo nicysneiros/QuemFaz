@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -22,7 +23,7 @@ import com.parse.ParseAnonymousUtils;
 import com.parse.ParseUser;
 
 
-public class NavigationDrawerFragment extends Fragment implements View.OnClickListener {
+public class NavigationDrawerFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     /** VIEWS **/
     private ImageView usuarioProfilePic;
@@ -51,8 +52,13 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
         initViews(view);
         initListeners();
         initAdapters();
+        checkLogin();
 
-        if(!ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
+
+    }
+
+    public void checkLogin(){
+        if(ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
             //Usuario não logado
             logado = false;
         } else {
@@ -63,17 +69,19 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
             this.usuarioProfilePic.setVisibility(ImageView.VISIBLE);
             this.usuarioNome.setVisibility(TextView.VISIBLE);
             this.entreCadastre.setVisibility(Button.GONE);
+            ParseUser currentUser = ParseUser.getCurrentUser();
+            this.usuarioNome.setText(currentUser.getUsername());
         } else {
             this.usuarioProfilePic.setVisibility(ImageView.GONE);
             this.usuarioNome.setVisibility(TextView.GONE);
             this.entreCadastre.setVisibility(Button.VISIBLE);
         }
-
     }
 
     private void initListeners() {
 
         this.entreCadastre.setOnClickListener(this);
+        this.itensMenu.setOnItemClickListener(this);
 
     }
 
@@ -84,7 +92,6 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
         this.itensMenu = (ListView) view.findViewById(R.id.menu);
         this.entreCadastre = (Button) view.findViewById(R.id.entre_cadastre);
         this.dadosUsuario = (LinearLayout) view.findViewById(R.id.dados_usuario);
-
     }
 
     private void initAdapters(){
@@ -101,6 +108,17 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
                 Intent intent = new Intent(getActivity(), LoginCadastroActivity.class);
                 startActivity(intent);
             break;
+        }
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (position){
+            case 5:
+                ParseUser.getCurrentUser().logOut();
+                this.checkLogin();
+                break;
         }
     }
 }

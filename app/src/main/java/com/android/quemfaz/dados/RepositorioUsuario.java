@@ -11,7 +11,7 @@ public class RepositorioUsuario {
 
 
     public void cadastrarUsuario(String nome, String email, String senha, byte[] foto ) throws ParseException {
-        ParseUser usuario = ParseUser.getCurrentUser();
+        ParseUser usuario =ParseUser.getCurrentUser();
         ParseFile fotoPerfil = new ParseFile("perfil.png", foto);
 
         fotoPerfil.save();
@@ -22,10 +22,12 @@ public class RepositorioUsuario {
         usuario.put("name", nome);
         usuario.put("foto",fotoPerfil);
 
-        usuario.save();
+        usuario.signUp();
     }
 
-    public void loginUsuario(String email, String senha) throws ParseException {
-        ParseUser.logIn(email, senha);
+    public ParseUser loginUsuario(String email, String senha) throws ParseException {
+       ParseUser user = ParseUser.logIn(email, senha);
+
+        return user;
     }
 }

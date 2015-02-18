@@ -1,6 +1,7 @@
 package com.android.quemfaz.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -57,9 +58,13 @@ public class CadastrarFragment extends Fragment implements View.OnClickListener 
 
                     try {
                         repositorioUsuario.cadastrarUsuario(nome,email,password,"teste".getBytes());
+
+                        Toast.makeText(getActivity(),"Usuario cadastrado com sucesso",Toast.LENGTH_LONG).show();
+
+                        getActivity().finish();
+
                     } catch (ParseException e) {
-                        e.printStackTrace();
-                        Toast.makeText(getActivity(),"Erro",Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(),"Erro! Tente de Novo",Toast.LENGTH_LONG).show();
 
                     }
                 }else{

@@ -14,6 +14,7 @@ import com.android.quemfaz.adapters.EstabelecimentoListAdapter;
 import com.android.quemfaz.dados.Estabelecimento;
 import com.android.quemfaz.dados.RepositorioEstabelecimento;
 import com.parse.ParseException;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +42,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         initViews();
         initAdapters();
         initListeners();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.w(this.getClass().getName(),"onResume");
+        this.checkLogin();
+
     }
 
     private void initViews(){
