@@ -1,81 +1,53 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.android.quemfaz.fragments.LoginFragment"
-    >
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin"
+    android:gravity="center_horizontal">
 
-    <RelativeLayout
-        android:id="@+id/loginBlock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal|center_vertical"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        >
-
-        <TextView
-            android:id="@+id/emailTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email:"
-            />
 
         <EditText
             android:id="@+id/emailEditText"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:inputType="textEmailAddress"
-            android:layout_below="@id/emailTextView"/>
-
-        <TextView
-            android:id="@+id/passwordTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/emailEditText"
-            android:text="Senha:"/>
+            android:inputType="textEmailAddress"
+            android:hint="@string/email"
+            android:layout_marginTop="@dimen/edit_text_marging"
+            android:layout_marginBottom="@dimen/edit_text_marging"/>
 
         <EditText
             android:id="@+id/passwordEditText"
-            android:layout_below="@id/passwordTextView"
-            android:layout_width="200dp"
-            android:password="true"
-            android:layout_height="40dp" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/buttonBlock"
-            android:layout_below="@id/loginBlock"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="textPassword"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal|center_vertical"
-            android:layout_marginTop="70dp"
-            android:layout_centerHorizontal="true"
-            >
+            android:hint="@string/senha"
+            android:layout_marginTop="@dimen/edit_text_marging"
+            android:layout_marginBottom="@dimen/edit_text_marging"/>
+
         <Button
             android:id="@+id/entrarButton"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/login_button_size"
             android:layout_height="wrap_content"
-            android:text="Entrar"
-            />
+            android:text="@string/entrar"
+            android:layout_marginBottom="@dimen/edit_text_marging"
+            android:layout_marginTop="@dimen/login_button_margin_top"/>
 
-         <TextView
+        <!--TextView
              android:id="@+id/facebookText"
-             android:layout_below="@id/entrarButton"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
-             android:text="Ou logue com"
-             android:layout_marginBottom="20dp"
-             android:layout_marginTop="20dp"/>
+             android:text="@string/login_facebook"
+             android:layout_marginBottom="@dimen/edit_text_marging"
+             android:layout_marginTop="@dimen/edit_text_marging"/>
 
-         <Button
-            android:layout_width="wrap_content"
+        <com.facebook.widget.LoginButton
+            android:layout_width="@dimen/login_button_size"
             android:layout_height="wrap_content"
-            android:text="Facebook"
-            android:layout_below="@id/facebookText"/>
-
-        </RelativeLayout>
+            android:text="@string/facebook"/-->
 
 
 
-</RelativeLayout>
+
+</LinearLayout>

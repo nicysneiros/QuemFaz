@@ -17,6 +17,14 @@
     <string name="avancar">Avançar</string>
     <string name="salvar">Salvar</string>
 
+    <string name="nome">Nome</string>
+    <string name="email">Email</string>
+    <string name="senha">Senha</string>
+    <string name="entrar">Entrar</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="login_facebook">Ou faça o login com</string>
+    <string name="facebook">Facebook</string>
+
     <string-array name="lista_categorias">
         <item>Alimentos e Bebidas</item>
         <item>Automóveis e Veículos</item>
