@@ -5,6 +5,15 @@
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/explicacao_informacoes"
+        android:textSize="@dimen/text_size"
+        android:textColor="#808080"
+        android:layout_marginBottom="@dimen/edit_text_marging"
+        android:layout_marginTop="@dimen/edit_text_marging"/>
+
     <EditText
         android:id="@+id/nome_estabelecimento"
         android:layout_width="match_parent"

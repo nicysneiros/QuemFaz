@@ -19,6 +19,7 @@ import android.widget.Button;
 import com.android.quemfaz.R;
 import com.android.quemfaz.adapters.FragmentTabAdapter;
 import com.android.quemfaz.fragments.InformacoesEstabelecimentoFragment;
+import com.android.quemfaz.fragments.LocalizacaoEstabelecimentoFragment;
 import com.viewpagerindicator.TabPageIndicator;
 
 import java.io.FileNotFoundException;
@@ -31,12 +32,14 @@ public class CadastrarEstabelecimentoActivity extends FragmentActivity implement
      * FRAGMENTS *
      */
     private InformacoesEstabelecimentoFragment informacoes;
+    private LocalizacaoEstabelecimentoFragment localizacao;
     private ArrayList<Fragment> fragments;
 
     /**
      * TITLES *
      */
     private static final String INFORMACOES_TITLE = "INFORMAÇÕES";
+    private static final String LOCALIZACAO_TITLE = "LOCALIZAÇÃO";
     private ArrayList<String> titles;
 
     /**
@@ -52,6 +55,7 @@ public class CadastrarEstabelecimentoActivity extends FragmentActivity implement
         setContentView(R.layout.activity_cadastrar_estabelecimento);
 
         this.informacoes = new InformacoesEstabelecimentoFragment();
+        this.localizacao = new LocalizacaoEstabelecimentoFragment();
 
         this.viewPager = (ViewPager) findViewById(R.id.pager);
         this.tabPageIndicator = (TabPageIndicator) findViewById(R.id.titles);
@@ -72,9 +76,11 @@ public class CadastrarEstabelecimentoActivity extends FragmentActivity implement
 
         fragments = new ArrayList<Fragment>();
         fragments.add(informacoes);
+        fragments.add(localizacao);
 
         titles = new ArrayList<String>();
         titles.add(INFORMACOES_TITLE);
+        titles.add(LOCALIZACAO_TITLE);
 
 
         FragmentTabAdapter adapter = new FragmentTabAdapter(getSupportFragmentManager(), fragments, titles);

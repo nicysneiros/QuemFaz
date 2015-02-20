@@ -10,6 +10,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login_cadastro">LoginCadastroActivity</string>
 
+    <string name="explicacao_informacoes">Insira as informações básicas sobre o seu estabelecimento</string>
     <string name="nome_estabelecimento">Nome do Estabelecimento</string>
     <string name="descricao_estabelecimento">Descrição</string>
     <string name="categoria_estabelecimento">Categoria:</string>
@@ -25,6 +26,8 @@
     <string name="login_facebook">Ou faça o login com</string>
     <string name="facebook">Facebook</string>
 
+    <string name="explicacao_localizacao">Defina o local do seu estabelecimento. Se você não selecionar no mapa ou pesquisar, sua localização atual será selecionada</string>
+    <string name="pesquisar_endereco">Pesquisar Endereço</string>
     <string-array name="lista_categorias">
         <item>Alimentos e Bebidas</item>
         <item>Automóveis e Veículos</item>
