@@ -1,6 +1,9 @@
 package com.android.quemfaz.fragments;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +18,8 @@ import com.android.quemfaz.R;
 import com.android.quemfaz.dados.RepositorioUsuario;
 import com.parse.ParseException;
 
+import java.util.concurrent.Executor;
+
 
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
@@ -22,6 +27,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     private EditText passwordField;
     private Button entrarButton;
     private RepositorioUsuario repositorioUsuario;
+
+    ProgressDialog progressDialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +59,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.entrarButton:
+                /*
                 String email = this.emailField.getText().toString();
                 String password = this.passwordField.getText().toString();
 
@@ -72,9 +80,65 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 }else{
                     Toast.makeText(getActivity(),"Dados Incompletos",Toast.LENGTH_LONG).show();
                 }
+                */
 
+                progressDialog = new ProgressDialog(getActivity());
+                progressDialog.setProgress(ProgressDialog.STYLE_SPINNER);
+                progressDialog.setMessage("Carregando...");
+                progressDialog.show();
+
+                new efetuarLogin().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,"");
 
                 break;
+        }
+    }
+
+    private class efetuarLogin extends AsyncTask<String, String, String>{
+
+        @Override
+        protected String doInBackground(String... params) {
+            String email = emailField.getText().toString();
+            String password = passwordField.getText().toString();
+
+            if( !email.isEmpty() && !password.isEmpty()){
+
+                try {
+                    repositorioUsuario.loginUsuario(email,password);
+
+                    progressDialog.dismiss();
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getActivity(), "Usuario logado com sucesso", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                    getActivity().finish();
+
+
+                } catch (ParseException e) {
+
+                    progressDialog.dismiss();
+                    getActivity().runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getActivity(), "Erro", Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+                }
+            }else{
+
+                progressDialog.dismiss();
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), "Dados Incompletos", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+
+            return null;
         }
     }
 }

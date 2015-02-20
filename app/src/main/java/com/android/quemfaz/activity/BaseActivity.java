@@ -52,6 +52,12 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @Override
+    protected void onResume() {
+        this.navigationDrawerFragment.updateNavigationDrawer();
+        super.onResume();
+    }
+
+    @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         drawerToggle.syncState();

@@ -108,6 +108,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         Estabelecimento estabelecimento = (Estabelecimento) adapter.getItem(position);
         Intent intent = new Intent(this,VisualizarEstabelecimentoActivity.class);
         Bundle bundle = new Bundle();
+        bundle.putString("nome", estabelecimento.getNome());
         bundle.putByteArray("foto", estabelecimento.getFoto());
         bundle.putString("descricao", estabelecimento.getDescricao());
         bundle.putString("facebook", estabelecimento.getPaginaFacebook());

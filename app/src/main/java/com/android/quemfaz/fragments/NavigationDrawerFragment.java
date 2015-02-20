@@ -55,9 +55,6 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
         super.onViewCreated(view, savedInstanceState);
         checkLogin();
         initViews(view);
-        initListeners();
-        initAdapters();
-        checkLogin();
 
 
     }
@@ -90,6 +87,14 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
         this.entreCadastre = (Button) view.findViewById(R.id.entre_cadastre);
         this.dadosUsuario = (LinearLayout) view.findViewById(R.id.dados_usuario);
 
+        updateNavigationDrawer();
+
+    }
+
+    public void updateNavigationDrawer(){
+
+        checkLogin();
+
         if (logado){
             this.usuarioProfilePic.setVisibility(ImageView.VISIBLE);
             this.usuarioNome.setVisibility(TextView.VISIBLE);
@@ -102,6 +107,8 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
             this.entreCadastre.setVisibility(Button.VISIBLE);
         }
 
+        initAdapters();
+        initListeners();
     }
 
     private void initAdapters(){
@@ -129,6 +136,7 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
                 Intent mainActivityIntent = new Intent(getActivity(), MainActivity.class);
                 mainActivityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 getActivity().startActivity(mainActivityIntent);
+                break;
             case 1:
                 if (logado) { //Cadastrar Estabelecimento
                     Intent intent = new Intent(getActivity(), CadastrarEstabelecimentoActivity.class);
@@ -160,11 +168,11 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
                     categoriaIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     getActivity().startActivity(categoriaIntent);
                 }
+                break;
             case 5: //Logout
-                if (logado) {
-                    ParseUser.getCurrentUser().logOut();
-                    this.checkLogin();
-                }
+                ParseUser.getCurrentUser().logOut();
+                this.checkLogin();
+                updateNavigationDrawer();
                 break;
 
         }

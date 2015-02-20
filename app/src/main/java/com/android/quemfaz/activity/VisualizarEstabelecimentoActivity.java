@@ -10,6 +10,7 @@ import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,7 +25,7 @@ import java.util.Locale;
 public class VisualizarEstabelecimentoActivity extends Activity implements View.OnClickListener {
 
     private ImageView imagem;
-    private TextView descricao;
+    private TextView descricao, nome;
     private Bitmap bitmap;
     private Bundle bundle;
 
@@ -37,14 +38,17 @@ public class VisualizarEstabelecimentoActivity extends Activity implements View.
 
         imagem = (ImageView) findViewById(R.id.foto_estabelecimento);
         descricao = (TextView) findViewById(R.id.descricao_estabelecimento);
-        Button rotaButton = (Button) findViewById(R.id.rota_button);
-        Button telefoneButton = (Button) findViewById(R.id.telefone_button);
+        nome = (TextView) findViewById(R.id.nome_estabelecimento);
+        ImageButton rotaButton = (ImageButton) findViewById(R.id.rota_button);
+        ImageButton telefoneButton = (ImageButton) findViewById(R.id.telefone_button);
         rotaButton.setOnClickListener(this);
         telefoneButton.setOnClickListener(this);
         this.bitmap = BitmapFactory.decodeByteArray(bundle.getByteArray("foto"),0,bundle.getByteArray("foto").length);
         this.descricao.setText(bundle.getString("descricao"));
+        this.nome.setText(bundle.getString("nome"));
         imagem.setImageBitmap(bitmap);
 
+        setTitle(bundle.getString("nome"));
 
         if (getActionBar() != null) {
             getActionBar().setDisplayHomeAsUpEnabled(true);

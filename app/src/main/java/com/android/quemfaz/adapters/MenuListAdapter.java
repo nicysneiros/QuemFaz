@@ -48,7 +48,7 @@ public class MenuListAdapter extends BaseAdapter {
             menuItens.add(new MenuItem("Histórico de Busca", R.drawable.ic_menu_recent_history));
             menuItens.add(new MenuItem("Favoritos", R.drawable.ic_menu_star));
             menuItens.add(new MenuItem("Categorias", R.drawable.ic_menu_find_holo_light));
-            menuItens.add(new MenuItem("LogOut",R.drawable.ic_menu_add));
+            menuItens.add(new MenuItem("LogOut",R.drawable.ic_action_cancel));
 
         }
 

@@ -11,6 +11,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,8 +29,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.viewpagerindicator.TabPageIndicator;
-
-import org.apache.commons.logging.Log;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -105,6 +104,7 @@ public class CadastrarEstabelecimentoActivity extends FragmentActivity implement
         FragmentTabAdapter adapter = new FragmentTabAdapter(getSupportFragmentManager(), fragments, titles);
         this.viewPager.setAdapter(adapter);
         this.tabPageIndicator.setViewPager(this.viewPager);
+        this.tabPageIndicator.setOnPageChangeListener(this);
 
     }
 
@@ -144,14 +144,16 @@ public class CadastrarEstabelecimentoActivity extends FragmentActivity implement
 
         switch (v.getId()) {
             case R.id.cancelar_button:
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
+                finish();
                 break;
             case R.id.avancar_button:
                 int currentFragment = this.viewPager.getCurrentItem();
-                if (currentFragment == this.viewPager.getAdapter().getCount() - 1){
+                if (currentFragment == this.viewPager.getAdapter().getCount() - 2){
+                    this.viewPager.setCurrentItem(currentFragment + 1);
                     this.avancarButton.setVisibility(Button.GONE);
                     this.salvarButton.setVisibility(Button.VISIBLE);
+                } else {
+                    this.viewPager.setCurrentItem(currentFragment + 1);
                 }
 
                 break;
@@ -165,12 +167,12 @@ public class CadastrarEstabelecimentoActivity extends FragmentActivity implement
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
     }
 
     @Override
     public void onPageSelected(int position) {
 
+        Log.d("CadastroEstabelecimento", "Mudei a página: " + position + " | Total de Páginas: " + this.viewPager.getAdapter().getCount());
         if (position == this.viewPager.getAdapter().getCount()-1){
             this.avancarButton.setVisibility(Button.GONE);
             this.salvarButton.setVisibility(Button.VISIBLE);
