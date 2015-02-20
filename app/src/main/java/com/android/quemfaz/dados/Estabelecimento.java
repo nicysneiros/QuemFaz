@@ -1,11 +1,16 @@
 package com.android.quemfaz.dados;
 
+import android.os.Parcelable;
+
 import com.parse.ParseUser;
+
+import java.io.Serializable;
+
 
 /**
  * Created by nicolle on 31/01/15.
  */
-public class Estabelecimento {
+public class Estabelecimento implements Serializable {
 
     private String nome, descricao, categoria, telefone, email, paginaWeb, paginaFacebook;
     private byte[] foto;

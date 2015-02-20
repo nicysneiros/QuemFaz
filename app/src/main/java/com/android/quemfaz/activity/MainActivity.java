@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -20,12 +21,13 @@ import com.parse.ParseUser;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends BaseActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     /** VIEWS **/
     private ListView resultadosView;
     private EditText buscaInput;
     private ImageButton buscaButton;
+    private EstabelecimentoListAdapter adapter;
     /************/
 
     private List<Estabelecimento> estabelecimentos;
@@ -73,12 +75,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void initAdapters(){
-        EstabelecimentoListAdapter adapter = new EstabelecimentoListAdapter(this, this.estabelecimentos);
+        adapter = new EstabelecimentoListAdapter(this, this.estabelecimentos);
         this.resultadosView.setAdapter(adapter);
     }
 
     private void initListeners(){
         this.buscaButton.setOnClickListener(this);
+        this.resultadosView.setOnItemClickListener(this);
+
     }
 
     @Override
@@ -96,6 +100,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
                 break;
         }
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Estabelecimento estabelecimento = (Estabelecimento) adapter.getItem(position);
+        Intent intent = new Intent(this,VisualizarEstabelecimentoActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putByteArray("foto", estabelecimento.getFoto());
+        bundle.putString("descricao", estabelecimento.getDescricao());
+        bundle.putString("facebook", estabelecimento.getPaginaFacebook());
+        bundle.putDouble("latitude", estabelecimento.getLatitude());
+        bundle.putDouble("longitude", estabelecimento.getLongitude());
+        bundle.putString("telefone", estabelecimento.getTelefone());
+        intent.putExtras(bundle);
+        startActivity(intent);
 
     }
 }
