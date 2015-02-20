@@ -9,7 +9,6 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login_cadastro">LoginCadastroActivity</string>
-
     <string name="explicacao_informacoes">Insira as informações básicas sobre o seu estabelecimento</string>
     <string name="nome_estabelecimento">Nome do Estabelecimento</string>
     <string name="descricao_estabelecimento">Descrição</string>
@@ -17,7 +16,6 @@
     <string name="cancelar">Cancelar</string>
     <string name="avancar">Avançar</string>
     <string name="salvar">Salvar</string>
-
     <string name="nome">Nome</string>
     <string name="email">Email</string>
     <string name="senha">Senha</string>
@@ -25,14 +23,13 @@
     <string name="cadastrar">Cadastrar</string>
     <string name="login_facebook">Ou faça o login com</string>
     <string name="facebook">Facebook</string>
-
     <string name="explicacao_contatos">Informe os seus dados de contato</string>
     <string name="telefone">Telefone</string>
     <string name="pagina_web">Página Web</string>
     <string name="pagina_facebook">Página Facebook</string>
-
     <string name="explicacao_localizacao">Defina o local do seu estabelecimento, ou clique em "Avançar" para selecionar sua localização atual</string>
     <string name="pesquisar_endereco">Pesquisar Endereço</string>
+
     <string-array name="lista_categorias">
         <item>Alimentos e Bebidas</item>
         <item>Automóveis e Veículos</item>
@@ -48,10 +45,11 @@
         <item>Pet Shop</item>
         <item>Turismo</item>
     </string-array>
-
     <string-array name="opcoes_foto">
         <item>Tirar Foto</item>
         <item>Escolher Foto</item>
     </string-array>
+
+    <string name="title_activity_categorias">Categorias</string>
 
 </resources>

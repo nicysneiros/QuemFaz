@@ -36,8 +36,6 @@ public class BaseActivity extends FragmentActivity {
 
         getLayoutInflater().inflate(layoutResID, contentFrame, true);
 
-
-
         navigationDrawerFragment = new NavigationDrawerFragment();
         FragmentManager fm = getSupportFragmentManager();
         fm.beginTransaction().add(R.id.drawer_layout, navigationDrawerFragment).commit();
@@ -73,7 +71,6 @@ public class BaseActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     private class DrawerToggle extends ActionBarDrawerToggle {
 
         public DrawerToggle(Activity activity, DrawerLayout drawerLayout, int openDrawerContentDescRes, int closeDrawerContentDescRes) {
@@ -88,4 +85,6 @@ public class BaseActivity extends FragmentActivity {
             super.onDrawerOpened(drawerView);
         }
     }
+
+
 }

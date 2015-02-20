@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 import com.android.quemfaz.R;
 import com.android.quemfaz.activity.CadastrarEstabelecimentoActivity;
 import com.android.quemfaz.activity.LoginCadastroActivity;
+import com.android.quemfaz.activity.MainActivity;
 import com.android.quemfaz.adapters.MenuListAdapter;
 import com.parse.ParseAnonymousUtils;
 import com.parse.ParseUser;
@@ -61,8 +63,10 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
     public void checkLogin(){
         if(ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
             //Usuario não logado
+            Log.d("NavigationDrawer", "ParseAnonymousUtils is linked!");
             logado = false;
         } else {
+            Log.d("NavigationDrawer", "ParseAnonymousUtils is not linked!");
             logado = true;
         }
 
@@ -96,7 +100,7 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
     }
 
     private void initAdapters(){
-        MenuListAdapter adapter = new MenuListAdapter(getActivity());
+        MenuListAdapter adapter = new MenuListAdapter(getActivity(), logado);
         this.itensMenu.setAdapter(adapter);
     }
 
@@ -116,15 +120,44 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (position){
-            case 5:
-                ParseUser.getCurrentUser().logOut();
-                this.checkLogin();
-                break;
+            case 0: //Inicio
+                Intent mainActivityIntent = new Intent(getActivity(), MainActivity.class);
+                mainActivityIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getActivity().startActivity(mainActivityIntent);
             case 1:
-                Intent intent = new Intent(getActivity(), CadastrarEstabelecimentoActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                getActivity().startActivity(intent);
+                if (logado) { //Cadastrar Estabelecimento
+                    Intent intent = new Intent(getActivity(), CadastrarEstabelecimentoActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    getActivity().startActivity(intent);
+                } else { //Histórico de Busca
+                    //TODO
+                }
                 break;
+            case 2:
+                if(logado){ //Historico de Busca
+                    //TODO
+                } else { //Favoritos
+                    //TODO
+                }
+                break;
+            case 3:
+                if(logado){ //Favoritos
+                    //TODO
+                } else { //Categorias
+
+                }
+                break;
+            case 4:
+                if (logado){ //Categorias
+
+                }
+            case 5: //Logout
+                if (logado) {
+                    ParseUser.getCurrentUser().logOut();
+                    this.checkLogin();
+                }
+                break;
+
         }
     }
 }

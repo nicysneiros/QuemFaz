@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <com.android.quemfaz.utils.CircularImageView
+        android:id="@+id/icone"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/default_estabelecimento"/>
+
+    <TextView
+        android:id="@+id/categoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/senha"
+        android:textSize="@dimen/text_size"
+        android:textColor="#808080"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"/>
+
+</LinearLayout>

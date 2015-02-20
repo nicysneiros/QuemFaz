@@ -2,6 +2,7 @@ package com.android.quemfaz.activity;
 
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,6 +43,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         initViews();
         initAdapters();
         initListeners();
+
+        Intent intent = getIntent();
+        String categoria = (intent.hasExtra("CATEGORIA")) ? intent.getStringExtra("CATEGORIA") : null;
+
+        if (categoria != null){
+            try {
+                Log.d("MainActivity", "Pesquisando por categoria: " + categoria);
+                this.estabelecimentos = this.repositorioEstabelecimento.getEstabelecimentoByCategoria(categoria);
+                initAdapters();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

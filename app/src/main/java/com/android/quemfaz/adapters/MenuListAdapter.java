@@ -24,15 +24,15 @@ import java.util.List;
 public class MenuListAdapter extends BaseAdapter {
 
     private List<MenuItem> menuItens;
-    private boolean logado;
     private Context context;
 
-    public MenuListAdapter(Context context){
+    public MenuListAdapter(Context context, boolean logado){
 
         this.context = context;
         this.menuItens = new ArrayList<MenuItem>();
-        if(ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
-            logado = true;
+        if(!logado){
+
+            Log.d("MenuListAdapter", "Logado false: " + logado);
 
             menuItens.add(new MenuItem("Início", R.drawable.ic_menu_home));
             menuItens.add(new MenuItem("Histórico de Busca", R.drawable.ic_menu_recent_history));
@@ -40,8 +40,8 @@ public class MenuListAdapter extends BaseAdapter {
             menuItens.add(new MenuItem("Categorias", R.drawable.ic_menu_find_holo_light));
 
         } else {
-            //Há usuário logado
-            logado = false;
+
+            Log.d("MenuListAdapter", "Logado true: " + logado);
 
             menuItens.add(new MenuItem("Início", R.drawable.ic_menu_home));
             menuItens.add(new MenuItem("Cadastrar Estabelecimento", R.drawable.ic_menu_add));
