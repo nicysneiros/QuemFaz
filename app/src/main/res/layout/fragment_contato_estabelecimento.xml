@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/explicacao_contatos"
+        android:textSize="@dimen/text_size"
+        android:textColor="#808080"
+        android:layout_marginBottom="@dimen/edit_text_marging"
+        android:layout_marginTop="@dimen/edit_text_marging"/>
+
+    <EditText
+        android:id="@+id/telefone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/telefone"
+        android:layout_marginBottom="@dimen/edit_text_marging"
+        android:layout_marginTop="@dimen/edit_text_marging"
+        android:inputType="phone"/>
+
+    <EditText
+        android:id="@+id/email_estabelecimento"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:layout_marginBottom="@dimen/edit_text_marging"
+        android:layout_marginTop="@dimen/edit_text_marging"/>
+
+    <EditText
+        android:id="@+id/pagina_web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/pagina_web"
+        android:layout_marginBottom="@dimen/edit_text_marging"
+        android:layout_marginTop="@dimen/edit_text_marging"/>
+
+</LinearLayout>

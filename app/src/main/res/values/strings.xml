@@ -26,7 +26,12 @@
     <string name="login_facebook">Ou faça o login com</string>
     <string name="facebook">Facebook</string>
 
-    <string name="explicacao_localizacao">Defina o local do seu estabelecimento. Se você não selecionar no mapa ou pesquisar, sua localização atual será selecionada</string>
+    <string name="explicacao_contatos">Informe os seus dados de contato</string>
+    <string name="telefone">Telefone</string>
+    <string name="pagina_web">Página Web</string>
+    <string name="pagina_facebook">Página Facebook</string>
+
+    <string name="explicacao_localizacao">Defina o local do seu estabelecimento, ou clique em "Avançar" para selecionar sua localização atual</string>
     <string name="pesquisar_endereco">Pesquisar Endereço</string>
     <string-array name="lista_categorias">
         <item>Alimentos e Bebidas</item>

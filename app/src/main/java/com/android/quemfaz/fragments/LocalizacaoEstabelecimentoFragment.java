@@ -45,6 +45,12 @@ public class LocalizacaoEstabelecimentoFragment extends Fragment implements View
     private GoogleMap mapa;
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_localizacao_estabelecimento, container, false);
     }
@@ -174,5 +180,9 @@ public class LocalizacaoEstabelecimentoFragment extends Fragment implements View
             this.marker = this.mapa.addMarker(options);
         }
         return false;
+    }
+
+    public LatLng getPosicaoEstabelecimento(){
+        return this.posicaoEstabelecimento;
     }
 }
