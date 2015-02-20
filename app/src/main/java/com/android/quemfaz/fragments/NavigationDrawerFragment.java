@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.android.quemfaz.R;
 import com.android.quemfaz.activity.CadastrarEstabelecimentoActivity;
+import com.android.quemfaz.activity.CategoriasActivity;
 import com.android.quemfaz.activity.LoginCadastroActivity;
 import com.android.quemfaz.activity.MainActivity;
 import com.android.quemfaz.adapters.MenuListAdapter;
@@ -52,6 +53,7 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
 
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
+        checkLogin();
         initViews(view);
         initListeners();
         initAdapters();
@@ -64,23 +66,13 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
         if(ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())){
             //Usuario não logado
             Log.d("NavigationDrawer", "ParseAnonymousUtils is linked!");
-            logado = false;
+            this.logado = false;
         } else {
             Log.d("NavigationDrawer", "ParseAnonymousUtils is not linked!");
-            logado = true;
+            this.logado = true;
         }
 
-        if (logado){
-            this.usuarioProfilePic.setVisibility(ImageView.VISIBLE);
-            this.usuarioNome.setVisibility(TextView.VISIBLE);
-            this.entreCadastre.setVisibility(Button.GONE);
-            ParseUser currentUser = ParseUser.getCurrentUser();
-            this.usuarioNome.setText(currentUser.getUsername());
-        } else {
-            this.usuarioProfilePic.setVisibility(ImageView.GONE);
-            this.usuarioNome.setVisibility(TextView.GONE);
-            this.entreCadastre.setVisibility(Button.VISIBLE);
-        }
+
     }
 
     private void initListeners() {
@@ -97,6 +89,19 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
         this.itensMenu = (ListView) view.findViewById(R.id.menu);
         this.entreCadastre = (Button) view.findViewById(R.id.entre_cadastre);
         this.dadosUsuario = (LinearLayout) view.findViewById(R.id.dados_usuario);
+
+        if (logado){
+            this.usuarioProfilePic.setVisibility(ImageView.VISIBLE);
+            this.usuarioNome.setVisibility(TextView.VISIBLE);
+            this.entreCadastre.setVisibility(Button.GONE);
+            ParseUser currentUser = ParseUser.getCurrentUser();
+            this.usuarioNome.setText(currentUser.getUsername());
+        } else {
+            this.usuarioProfilePic.setVisibility(ImageView.GONE);
+            this.usuarioNome.setVisibility(TextView.GONE);
+            this.entreCadastre.setVisibility(Button.VISIBLE);
+        }
+
     }
 
     private void initAdapters(){
@@ -144,12 +149,16 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
                 if(logado){ //Favoritos
                     //TODO
                 } else { //Categorias
-
+                    Intent categoriaIntent = new Intent(getActivity(), CategoriasActivity.class);
+                    categoriaIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    getActivity().startActivity(categoriaIntent);
                 }
                 break;
             case 4:
                 if (logado){ //Categorias
-
+                    Intent categoriaIntent = new Intent(getActivity(), CategoriasActivity.class);
+                    categoriaIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    getActivity().startActivity(categoriaIntent);
                 }
             case 5: //Logout
                 if (logado) {

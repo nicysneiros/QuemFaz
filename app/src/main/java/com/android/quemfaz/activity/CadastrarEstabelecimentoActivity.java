@@ -29,6 +29,8 @@ import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.viewpagerindicator.TabPageIndicator;
 
+import org.apache.commons.logging.Log;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -168,6 +170,7 @@ public class CadastrarEstabelecimentoActivity extends FragmentActivity implement
 
     @Override
     public void onPageSelected(int position) {
+
         if (position == this.viewPager.getAdapter().getCount()-1){
             this.avancarButton.setVisibility(Button.GONE);
             this.salvarButton.setVisibility(Button.VISIBLE);

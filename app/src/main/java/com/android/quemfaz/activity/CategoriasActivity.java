@@ -1,5 +1,6 @@
 package com.android.quemfaz.activity;
 
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +15,7 @@ import com.android.quemfaz.adapters.CategoriaListAdapter;
 
 import java.util.List;
 
-public class CategoriasActivity extends ActionBarActivity {
+public class CategoriasActivity extends FragmentActivity {
 
     String [] categorias;
     /** VIEWS **/

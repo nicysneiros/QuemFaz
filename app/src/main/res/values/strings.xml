@@ -51,5 +51,6 @@
     </string-array>
 
     <string name="title_activity_categorias">Categorias</string>
+    <string name="explicacao_imagem_estabelecimento">Para facilitar a busca do usuário, adicione uma imagem do seu estabelecimento clicando na figura abaixo</string>
 
 </resources>
