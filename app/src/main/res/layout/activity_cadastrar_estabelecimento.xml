@@ -1,12 +1,56 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.android.quemfaz.activity.CadastrarEstabelecimentoActivity">
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <com.viewpagerindicator.TabPageIndicator
+        android:id="@+id/titles"
+        android:background="@drawable/vpi__tab_indicator"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent" />
 
-</RelativeLayout>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/edit_text_marging"
+        android:layout_marginTop="@dimen/edit_text_marging">
+
+        <Button
+            android:id="@+id/cancelar_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cancelar"
+            android:layout_weight="1"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <Button
+            android:id="@+id/avancar_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/avancar"/>
+
+            <Button
+                android:id="@+id/salvar_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/salvar"/>
+
+            </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

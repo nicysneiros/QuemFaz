@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.android.quemfaz.R;
+import com.android.quemfaz.activity.CadastrarEstabelecimentoActivity;
 import com.android.quemfaz.activity.LoginCadastroActivity;
 import com.android.quemfaz.adapters.MenuListAdapter;
 import com.parse.ParseAnonymousUtils;
@@ -118,6 +119,11 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
             case 5:
                 ParseUser.getCurrentUser().logOut();
                 this.checkLogin();
+                break;
+            case 1:
+                Intent intent = new Intent(getActivity(), CadastrarEstabelecimentoActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                getActivity().startActivity(intent);
                 break;
         }
     }

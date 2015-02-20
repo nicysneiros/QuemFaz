@@ -5,9 +5,37 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_cadastrar_estabelecimento">CadastrarEstabelecimentoActivity</string>
+    <string name="title_activity_cadastrar_estabelecimento">Cadastrar Estabelecimento</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login_cadastro">LoginCadastroActivity</string>
+
+    <string name="nome_estabelecimento">Nome do Estabelecimento</string>
+    <string name="descricao_estabelecimento">Descrição</string>
+    <string name="categoria_estabelecimento">Categoria:</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="avancar">Avançar</string>
+    <string name="salvar">Salvar</string>
+
+    <string-array name="lista_categorias">
+        <item>Alimentos e Bebidas</item>
+        <item>Automóveis e Veículos</item>
+        <item>Beleza</item>
+        <item>Casa e Decoração</item>
+        <item>Esporte e Lazer</item>
+        <item>Flores, Cestas e Presentes</item>
+        <item>Fotografia</item>
+        <item>Imóveis</item>
+        <item>Moda e Acessórios</item>
+        <item>Papelaria e Escritório</item>
+        <item>Perfumaria e Cosméticos</item>
+        <item>Pet Shop</item>
+        <item>Turismo</item>
+    </string-array>
+
+    <string-array name="opcoes_foto">
+        <item>Tirar Foto</item>
+        <item>Escolher Foto</item>
+    </string-array>
 
 </resources>

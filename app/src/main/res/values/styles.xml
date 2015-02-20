@@ -1,3 +1,20 @@
 <resources>
 
+    <style name="AppTheme" parent="android:Theme.Holo.Light">
+        <item name="vpiTabPageIndicatorStyle">@style/TabTitle</item>
+    </style>
+
+    <style name="TabTitle">
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/vpi__tab_indicator</item>
+        <item name="android:paddingLeft">22dip</item>
+        <item name="android:paddingRight">22dip</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:textColor">#808080</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:maxLines">3</item>
+    </style>
+
 </resources>
